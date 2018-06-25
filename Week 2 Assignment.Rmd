@@ -1,0 +1,45 @@
+---
+title: "R Markdown and Leaflet"
+date: "June 25, 2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Freedom Trail
+
+The Freedom Trail is a 2.5-mile-long (4.0 km) path through downtown Boston, Massachusetts, that passes by 16 locations significant to the history of the United States. Marked largely with brick, it winds between Boston Common to the Bunker Hill Monument in Charlestown. Stops along the trail include simple explanatory ground markers, graveyards, notable churches and buildings, and a historic naval frigate. While most of the sites are free or suggest donations, the Old South Meeting House, the Old State House, and the Paul Revere House charge admission. The Freedom Trail is overseen by the City of Boston's Freedom Trail Commission[1] and is supported in part by grants from various nonprofits and foundations, private philanthropy, and Boston National Historical Park.
+
+
+```{r}
+library(leaflet)
+Boston_Freedom_Trail <- leaflet() %>%
+                        addTiles() %>%
+                        addMarkers(lat=c(42.355, 42.358167, 42.356911, 42.357389, 
+                                           42.358003, 42.3581173, 42.3575, 42.356944, 
+                                           42.358769, 42.35879, 42.36, 42.363722, 
+                                           42.366328, 42.367222, 42.372083, 42.376361),
+                                   lng=c(-71.065556, -71.063694, -71.062151, -71.061694,
+                                           -71.059994, -71.059320, -71.058889, -71.058611,
+                                           -71.057806, -71.05717, -71.05625, -71.053678,
+                                           -71.054456, -71.056389, -71.055578, -71.060778),
+                                   popup = c("Boston Common",
+                                           "Massachusetts State House",
+                                           "Park Street Church",
+                                           "Granary Burying Ground",
+                                           "King's Chapel and Burying Ground",
+                                           "Benjamin Franklin statue and former site of Boston Latin School",
+                                           "Old Corner Bookstore",
+                                           "Old South Meeting House",
+                                           "Old State House (Boston)",
+                                           "Site of the Boston Massacre",
+                                           "Faneuil Hall",
+                                           "Paul Revere House",
+                                           "Old North Church",
+                                           "Copp's Hill Burying Ground",
+                                           "USS Constitution",
+                                           "Bunker Hill Monument"))
+Boston_Freedom_Trail
+```
