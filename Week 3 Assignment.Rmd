@@ -1,0 +1,33 @@
+---
+title: "Week 3 Assignment"
+date: "July 20, 2018"
+output: ioslides_presentation
+---
+
+```{r results='asis', echo=FALSE, include=FALSE,}
+knitr::opts_chunk$set(echo = TRUE, warning=FALSE)
+library(plotly)
+library(ggplot2)
+library(datasets)
+```
+
+## Effect of Vitamin C on Tooth Growth by Supplement
+
+```{r, echo=FALSE, message=TRUE, warning=FALSE}
+data(ToothGrowth)
+plot_ly(ToothGrowth, y=~len, color=~as.factor(supp), type="box", mode="markers")
+```
+
+
+## Effect of Vitamin C on Tooth Growth by Dose Level
+
+```{r, echo=FALSE, message=TRUE, warning=FALSE}
+data(ToothGrowth)
+plot_ly(ToothGrowth, y=~len, color=~as.factor(dose), type="box", mode="markers")
+```
+
+
+## Conclusion
+
+- Supplement type has no impact on tooth growth. 
+- Increasing the dose level improves tooth growth.
